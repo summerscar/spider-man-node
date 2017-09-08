@@ -10,8 +10,8 @@ let textData = '车牌,热度,日期,图片链接,下载链接'
 
 getImage(arguments[0] || 1);
 
-function getImage (i) {
-    request(`${url}index_${i}.html`, (error, response, body) => {
+function getImage (page) {
+    request(`${url}index_${page}.html`, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const $ = cheerio.load(body)
             const items = $('.item ')
@@ -28,7 +28,7 @@ function getImage (i) {
                 request(src).pipe(fs.createWriteStream(imgName))
             }
         }
-        fs.writeFile(`./开车时间：${moment().format('MM-DD')} page：${arguments[0]}.csv`, textData, (err) => {
+        fs.writeFile(`./开车时间：${moment().format('MM-DD')} page：${page}.csv`, textData, (err) => {
             if(err) {
                 return console.log(err);
             }
