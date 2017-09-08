@@ -1,0 +1,14 @@
+{
+  "name": "spider-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "moment": "^2.18.1",
+    "request": "^2.81.0"
+  }
+}
