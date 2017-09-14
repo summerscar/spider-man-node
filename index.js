@@ -24,7 +24,7 @@ function getImage (page) {
                 let date = items[i].children[1].children[3].children[1].children[3].children[0].data
                 let heat = items[i].children[1].children[3].children[1].children[6].children[0].data.substr(3)
                 textData += `\r\n${title},${parseInt(heat)},${date},${src},${targetSrc}` 
-                let imgName = `./images/${heat} ${title}.jpg`
+                let imgName = `./images/${heat} ${title} ${page}.jpg`
                 request(src).pipe(fs.createWriteStream(imgName))
             }
         }
